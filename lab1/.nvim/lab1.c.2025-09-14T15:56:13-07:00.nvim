@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  char *buff = NULL;
+  char size = 0;
+
+  printf("Enter a line of text: ");
+  
+
+  ssize_t num_char = getline(&buff, &size, stdin);
+
+}
