@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main() {
+  char *buff = NULL;
+  size_t size = 0;
+
+  printf("Please enter some text: ");
+
+
+}

@@ -1,0 +1,43 @@
+#define _POSIX_C_SOURCE 200809L
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main() {
+  char *buff = NULL;
+  size_t size = 0;
+
+  printf("Enter programs to run: ");
+
+  ssize_t num_char = getline(&buff, &size, stdin);
+
+  if (num_char == -1) {
+    perror("getline failed");
+    exit(EXIT_FAILURE);
+  }
+
+  if (num_char > 0 && buff[num_char - 1] == '\n') {
+    buff[num_char - 1] = '\0';
+  }
+
+  printf("\nTokens:\n");
+
+  char *token;
+  char *saveptr;
+  const char *delimiter = "\"";
+
+      token = strtok_r(buff, delimiter, &saveptr);
+
+  while (token != NULL) {
+    printf("  %s\n", token);
+    token = strtok_r(NULL, delimiter, &saveptr);
+  }
+
+  exec1(num_char, num_char, (char *)NULL);
+
+  free(buff);
+
+  return 0;
+}
