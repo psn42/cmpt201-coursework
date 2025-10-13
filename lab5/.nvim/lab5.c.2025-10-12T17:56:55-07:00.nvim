@@ -128,13 +128,13 @@ int main(void) {
  *      current <- current.next
  *
  * 4) Check if newly freed block is contiguous with previous block:
- *      if prev != NULL and (address_of(prev) + prev.size) ==
- * address_of(newly_freed_block): merge_with_prev <- TRUE
+ *      if prev != NULL and (address_of(prev) + prev.size) == address_of(newly_freed_block):
+ *        merge_with_prev <- TRUE
  *
  * 5) Check if newly freed block is contiguous with next block:
- *      if current != NULL and (address_of(newly_freed_block) +
- * newly_freed_block.size) == address_of(newly_freed_block) +
- * newly_freed_block.size) == address_of(current): merge_with_next <- TRUE
+ *      if current != NULL and (address_of(newly_freed_block) + newly_freed_block.size) ==
+ *      address_of(newly_freed_block) + newly_freed_block.size) == address_of(current):
+ *        merge_with_next <- TRUE
  *
  * 6) Perform coalescing based on merge flags:
  *
@@ -164,4 +164,4 @@ int main(void) {
  *  else:
  *    free_list_head <- newly_freed_block
  * 7) return free_list_head
- */
+*/
